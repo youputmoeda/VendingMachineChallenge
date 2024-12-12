@@ -16,3 +16,7 @@ This is a vending machine simulation developed in C# for the Entrust coding chal
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/EntrustVendingMachine.git
+
+
+## Note
+This project was developed as part of a coding challenge for Entrust. 
