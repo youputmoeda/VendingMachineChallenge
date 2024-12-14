@@ -20,6 +20,21 @@ namespace EntrustVendingMachine
             // Exibir produtos e moedas
             vendingMachine.ProductStatus();
             vendingMachine.CoinsStatus();
+
+            while (true)
+            {
+                string productName = Console.ReadLine();
+                vendingMachine.SelectProduct(productName);
+
+                bool moneyIsAllInserted = false;
+                while (!moneyIsAllInserted)
+                {
+                    string input = Console.ReadLine();
+
+                    if (decimal.TryParse(input, out decimal moneyInserted))
+                        moneyIsAllInserted = vendingMachine.InsertMoney(moneyInserted);
+                }
+            }
         }
     }
 }

@@ -8,6 +8,8 @@ namespace EntrustVendingMachine.Models
     {
         private readonly Dictionary<string, Product> _products = new();
         private readonly Dictionary<TypesOfCoin, Coin> _coins = new();
+        private Product _selectedProducted;
+        private decimal _amountInserted;
 
         public void LoadProduct(Product product)
         {
@@ -39,6 +41,46 @@ namespace EntrustVendingMachine.Models
             }
         }
 
+        public void SelectProduct(string product)
+        {
+            if (String.IsNullOrWhiteSpace(product))
+                throw new ArgumentNullException(nameof(product), "Invalid product selection. Please try again.");
+
+            if (!_products.ContainsKey(product))
+                return;
+
+            if (_products[product].Stock <= 0)
+                return;
+
+            _selectedProducted = _products[product];
+            Console.WriteLine($"- {_selectedProducted.Name}: £{_selectedProducted.Price}");
+        }
+
+        public bool InsertMoney(decimal userChange)
+        {
+            if (userChange == null)
+                throw new ArgumentNullException(nameof(userChange), "user change cannot be null.");
+
+            _amountInserted += userChange;
+
+            Console.WriteLine($"Money Inserted: £{_amountInserted}");
+
+            //Pede mais dinheiro
+            if (_amountInserted <= _selectedProducted.Price)
+                return false;
+
+            //Não dá troco e dá o produto
+            else if (_amountInserted == _selectedProducted.Price)
+                return true;
+
+            //Dá troco e dá o produto
+            else
+            {
+
+                return true;
+            }
+        }
+
         public void ProductStatus()
         {
             Console.WriteLine("Available products:");
@@ -53,7 +95,7 @@ namespace EntrustVendingMachine.Models
             Console.WriteLine("Available coins:");
             foreach (var coin in _coins.Values)
             {
-                Console.WriteLine($"- {coin.CoinType.GetName()}: {coin.Quantity} coins (Value: £{coin.CoinType.GetValue()})");
+                Console.WriteLine($"- {coin.CoinType.GetName()}: {coin.Quantity} coins (Value: £{coin.CoinType.GetValue() * coin.Quantity})");
             }
         }
     }

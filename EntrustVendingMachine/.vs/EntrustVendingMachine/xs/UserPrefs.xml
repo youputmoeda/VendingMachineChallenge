@@ -2,12 +2,13 @@
   <MonoDevelop.Ide.ItemProperties.EntrustVendingMachine PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Services/VendingMachine.cs">
     <Files>
-      <File FileName="Program.cs" Line="7" Column="6" />
+      <File FileName="Program.cs" Line="27" Column="59" />
       <File FileName="Properties/AssemblyInfo.cs" Line="1" Column="1" />
       <File FileName="packages.config" />
       <File FileName="Models/Product.cs" />
-      <File FileName="Extensions/TypesOfCoinExtensions.cs" Line="19" Column="12" />
-      <File FileName="Services/VendingMachine.cs" Line="17" Column="1" />
+      <File FileName="Extensions/TypesOfCoinExtensions.cs" Line="14" Column="10" />
+      <File FileName="Services/VendingMachine.cs" Line="10" Column="52" />
+      <File FileName="Models/Coin.cs" Line="9" Column="28" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,6 +16,7 @@
           <Node name="EntrustVendingMachine" expanded="True">
             <Node name="EntrustVendingMachine" expanded="True">
               <Node name="Extensions" expanded="True" />
+              <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="Services" expanded="True">
                 <Node name="VendingMachine.cs" selected="True" />
