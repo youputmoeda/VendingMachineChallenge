@@ -60,16 +60,24 @@ This project is a fully functional vending machine simulation developed in **C#*
 - Open the Test Explorer in your IDE.
 - Run all tests to verify that all functionalities are working as intended.
 
+---
+
 ## Project Highlights:
 - Realistic User Interaction: Simulates a real-world vending machine experience with intuitive inputs and outputs.
 - Scalable Design: Built with modularity in mind, making it easy to extend or customize.
 - Thorough Testing: High-quality unit tests ensure reliability under various conditions and scenarios.
 
+---
+
 ## Contributing:
 Contributions are welcome! Whether you're fixing a bug, improving documentation, or adding new features, feel free to fork the repository, make changes, and submit a pull request.
 
+---
+
 ## License:
 This project is distributed under the MIT License, giving you the freedom to use, modify, and distribute it as needed.
+
+---
 
 ## Acknowledgments:
 This simulation was developed as part of the Entrust Coding Challenge. If you have feedback or questions, feel free to reach out or submit an issue in the repository.
