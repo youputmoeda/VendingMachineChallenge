@@ -8,11 +8,27 @@ using VendingMachine.Enums;
 
 namespace EntrustVendingMachine.Testers
 {
+    /// <summary>
+    /// Unit tests for the <see cref="VendingMachineService.SelectProduct"/> method.
+    /// </summary>
+    /// <remarks>
+    /// These tests validate the behavior of product selection in the vending machine, including successful 
+    /// selection, failure cases for invalid inputs, out-of-stock products, and nonexistent products.
+    /// </remarks>
     [TestFixture]
     public class SelectProductTests
     {
         private VendingMachineService _vendingMachine;
 
+        /// <summary>
+        /// Sets up a new instance of the vending machine with predefined products before each test.
+        /// </summary>
+        /// <remarks>
+        /// Ensures the vending machine contains the following products:
+        /// - "Soda" (Price: £1.50, Stock: 10)
+        /// - "Chips" (Price: £1.00, Stock: 0)
+        /// - "Candy" (Price: £0.75, Stock: 5)
+        /// </remarks>
         [SetUp]
         public void Setup()
         {
@@ -25,6 +41,12 @@ namespace EntrustVendingMachine.Testers
             });
         }
 
+        /// <summary>
+        /// Verifies that selecting a valid product with available stock succeeds.
+        /// </summary>
+        /// <remarks>
+        /// Ensures that the product "Soda" can be selected successfully, with correct price and no errors.
+        /// </remarks>
         [Test]
         public void SelectProduct_ShouldSelectProductSuccessfully()
         {
@@ -38,6 +60,12 @@ namespace EntrustVendingMachine.Testers
             Assert.That(result.Error, Is.Null);
         }
 
+        /// <summary>
+        /// Verifies that attempting to select a nonexistent product fails with an appropriate error message.
+        /// </summary>
+        /// <remarks>
+        /// This test ensures that the method returns an error when trying to select "Water," which is not in the machine.
+        /// </remarks>
         [Test]
         public void SelectProduct_ShouldFail_WhenProductDoesNotExist()
         {
@@ -50,6 +78,12 @@ namespace EntrustVendingMachine.Testers
             Assert.That(result.ErrorCode, Is.EqualTo(ErrorCode.ProductDoesNotExist));
         }
 
+        /// <summary>
+        /// Verifies that attempting to select a product that is out of stock fails with an appropriate error message.
+        /// </summary>
+        /// <remarks>
+        /// This test checks the behavior when trying to select "Chips," which has zero stock in the vending machine.
+        /// </remarks>
         [Test]
         public void SelectProduct_ShouldFail_WhenProductIsOutOfStock()
         {
@@ -62,6 +96,12 @@ namespace EntrustVendingMachine.Testers
             Assert.That(result.ErrorCode, Is.EqualTo(ErrorCode.ProductOutOfStock));
         }
 
+        /// <summary>
+        /// Verifies that attempting to select a product with an invalid name (null or whitespace) fails with an error.
+        /// </summary>
+        /// <remarks>
+        /// Ensures the method handles invalid input gracefully and returns an appropriate error message.
+        /// </remarks>
         [Test]
         public void SelectProduct_ShouldFail_WhenProductNameIsInvalid()
         {
@@ -80,6 +120,13 @@ namespace EntrustVendingMachine.Testers
             Assert.That(resultWithWhiteSpace.ErrorCode, Is.EqualTo(ErrorCode.ProductDoesNotExist));
         }
 
+        /// <summary>
+        /// Verifies that a product with zero stock after selection cannot be selected again.
+        /// </summary>
+        /// <remarks>
+        /// This test ensures that once a product's stock is depleted, it becomes unavailable for further selection.
+        /// The product "Gum" starts with 1 unit, is selected once, and then fails on subsequent selections.
+        /// </remarks>
         [Test]
         public void SelectProduct_ShouldFail_WhenStockReachesZero()
         {

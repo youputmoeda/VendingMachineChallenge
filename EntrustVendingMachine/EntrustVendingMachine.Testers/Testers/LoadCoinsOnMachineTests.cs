@@ -9,17 +9,33 @@ using VendingMachine.Enums;
 
 namespace EntrustVendingMachine.Testers
 {
+    /// <summary>
+    /// Unit tests for the <see cref="VendingMachineService.LoadCoinsOnMachine(List{Coin})"/> method.
+    /// </summary>
+    /// <remarks>
+    /// These tests validate the behavior of loading coins into the vending machine,
+    /// ensuring proper handling of valid and invalid inputs, ordering logic, and quantity updates.
+    /// </remarks>
     [TestFixture]
     public class LoadCoinsOnMachineTests
     {
         private VendingMachineService _vendingMachine;
 
+        /// <summary>
+        /// Sets up a new instance of the vending machine service before each test.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
             _vendingMachine = new VendingMachineService();
         }
 
+        /// <summary>
+        /// Verifies that coins are correctly loaded into the vending machine.
+        /// </summary>
+        /// <remarks>
+        /// Ensures that the total quantity of coins is calculated accurately.
+        /// </remarks>
         [Test]
         public void LoadCoinsOnMachine_ShouldLoadCoinsCorrectly()
         {
@@ -38,6 +54,12 @@ namespace EntrustVendingMachine.Testers
             Assert.That(result.Value, Is.EqualTo(30));
         }
 
+        /// <summary>
+        /// Ensures that loading coins fails when the provided coin list is empty.
+        /// </summary>
+        /// <remarks>
+        /// Validates that the vending machine rejects empty coin lists with an appropriate error message.
+        /// </remarks>
         [Test]
         public void LoadCoinsOnMachine_ShouldFail_WhenCoinListIsEmpty()
         {
@@ -53,6 +75,12 @@ namespace EntrustVendingMachine.Testers
             Assert.That(result.ErrorCode, Is.EqualTo(ErrorCode.CoinListEmpty));
         }
 
+        /// <summary>
+        /// Ensures that loading coins fails when the provided coin list is null.
+        /// </summary>
+        /// <remarks>
+        /// Validates that the vending machine returns an error when a null list is supplied.
+        /// </remarks>
         [Test]
         public void LoadCoinsOnMachine_ShouldFail_WhenCoinListIsNull()
         {
@@ -65,6 +93,12 @@ namespace EntrustVendingMachine.Testers
             Assert.That(result.ErrorCode, Is.EqualTo(ErrorCode.CoinListEmpty));
         }
 
+        /// <summary>
+        /// Ensures that loading coins fails when one or more coins in the list are null.
+        /// </summary>
+        /// <remarks>
+        /// Verifies that the vending machine handles invalid input by rejecting null coins in the list.
+        /// </remarks>
         [Test]
         public void LoadCoinsOnMachine_ShouldFail_WhenCoinInListIsNull()
         {
@@ -84,6 +118,12 @@ namespace EntrustVendingMachine.Testers
             Assert.That(result.ErrorCode, Is.EqualTo(ErrorCode.CoinListEmpty));
         }
 
+        /// <summary>
+        /// Verifies that the vending machine increments the quantity of existing coins when reloaded.
+        /// </summary>
+        /// <remarks>
+        /// Ensures that additional coins of the same type are added to the current stock.
+        /// </remarks>
         [Test]
         public void LoadCoinsOnMachine_ShouldIncrementQuantityForExistingCoins()
         {
@@ -106,6 +146,12 @@ namespace EntrustVendingMachine.Testers
             Assert.That(result.Value, Is.EqualTo(5));
         }
 
+        /// <summary>
+        /// Ensures that coins are ordered by their value in descending order after loading.
+        /// </summary>
+        /// <remarks>
+        /// Verifies that the vending machine's internal state maintains correct order for coin types.
+        /// </remarks>
         [Test]
         public void LoadCoinsOnMachine_ShouldOrderCoinsByValueDescending()
         {
@@ -126,6 +172,12 @@ namespace EntrustVendingMachine.Testers
             Assert.That(status.Last(), Does.Contain("20p"));
         }
 
+        /// <summary>
+        /// Verifies that the vending machine allows loading coins with negative quantities.
+        /// </summary>
+        /// <remarks>
+        /// Tests whether negative quantities are accepted and appropriately reflected in the total calculation.
+        /// </remarks>
         [Test]
         public void LoadCoinsOnMachine_ShouldAllowNegativeQuantities()
         {
@@ -143,6 +195,12 @@ namespace EntrustVendingMachine.Testers
             Assert.That(result.Value, Is.EqualTo(-10));
         }
 
+        /// <summary>
+        /// Ensures that the vending machine accepts coins with a quantity of zero.
+        /// </summary>
+        /// <remarks>
+        /// Verifies that zero-quantity coins do not cause errors and are handled gracefully.
+        /// </remarks>
         [Test]
         public void LoadCoinsOnMachine_ShouldAcceptZeroQuantity()
         {

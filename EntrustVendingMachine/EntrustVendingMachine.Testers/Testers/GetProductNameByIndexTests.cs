@@ -7,23 +7,36 @@ using EntrustVendingMachine.Services;
 
 namespace EntrustVendingMachine.Testers
 {
+    /// <summary>
+    /// Unit tests for the <see cref="VendingMachineService.GetProductNameByIndex(int)"/> method.
+    /// </summary>
+    /// <remarks>
+    /// This class ensures that the <see cref="VendingMachineService"/> correctly handles requests
+    /// to retrieve product names by their index, including edge cases for invalid or empty indexes.
+    /// </remarks>
     [TestFixture]
-    public class GetProductNameByIndexTests
+    public class GetProductNameByIndexTest
     {
         private VendingMachineService _vendingMachine;
 
+        /// <summary>
+        /// Sets up a vending machine with predefined products before each test.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
             _vendingMachine = new VendingMachineService();
             _vendingMachine.LoadProductsOnMachine(new List<Product>
-        {
-            new Product("Soda", 1.50m, 10),
-            new Product("Chips", 1.00m, 5),
-            new Product("Candy", 0.75m, 20)
-        });
+            {
+                new Product("Soda", 1.50m, 10),
+                new Product("Chips", 1.00m, 5),
+                new Product("Candy", 0.75m, 20)
+            });
         }
 
+        /// <summary>
+        /// Ensures that the correct product name is returned when the provided index is valid.
+        /// </summary>
         [Test]
         public void GetProductNameByIndex_ShouldReturnCorrectProductName_WhenIndexIsValid()
         {
@@ -34,6 +47,9 @@ namespace EntrustVendingMachine.Testers
             Assert.That(productName, Is.EqualTo("Chips"));
         }
 
+        /// <summary>
+        /// Ensures that an <see cref="ArgumentOutOfRangeException"/> is thrown when the provided index is negative.
+        /// </summary>
         [Test]
         public void GetProductNameByIndex_ShouldThrowArgumentOutOfRangeException_WhenIndexIsNegative()
         {
@@ -43,6 +59,9 @@ namespace EntrustVendingMachine.Testers
             Assert.That(exception.Message, Does.Contain("Invalid product index: -1"));
         }
 
+        /// <summary>
+        /// Ensures that an <see cref="ArgumentOutOfRangeException"/> is thrown when the provided index exceeds the product list bounds.
+        /// </summary>
         [Test]
         public void GetProductNameByIndex_ShouldThrowArgumentOutOfRangeException_WhenIndexIsOutOfBounds()
         {
@@ -52,6 +71,10 @@ namespace EntrustVendingMachine.Testers
             Assert.That(exception.Message, Does.Contain("Invalid product index: 3"));
         }
 
+        /// <summary>
+        /// Ensures that an <see cref="ArgumentOutOfRangeException"/> is thrown when trying to access a product index 
+        /// from an empty vending machine.
+        /// </summary>
         [Test]
         public void GetProductNameByIndex_ShouldThrowArgumentOutOfRangeException_WhenNoProductsAreLoaded()
         {
