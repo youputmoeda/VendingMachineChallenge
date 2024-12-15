@@ -63,9 +63,9 @@ This project is a fully functional vending machine simulation developed in **C#*
 ---
 
 ## Project Highlights:
-- Realistic User Interaction: Simulates a real-world vending machine experience with intuitive inputs and outputs.
-- Scalable Design: Built with modularity in mind, making it easy to extend or customize.
-- Thorough Testing: High-quality unit tests ensure reliability under various conditions and scenarios.
+- **Realistic User Interaction**: Simulates a real-world vending machine experience with intuitive inputs and outputs.
+- **Scalable Design**: Built with modularity in mind, making it easy to extend or customize.
+- **Thorough Testing**: High-quality unit tests ensure reliability under various conditions and scenarios.
 
 ---
 
