@@ -79,7 +79,7 @@ This project is a fully functional vending machine simulation developed in **C#*
    - **If using VS Code**:  
      - Open the **Testing** tab.  
      - Run the tests directly from there.
-   - ![alt text](<Captura de ecrã 2024-12-20, às 16.17.45.png>)
+   - ![alt text](TestingImage.png)
 
 ---
 
