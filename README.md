@@ -42,23 +42,44 @@ This project is a fully functional vending machine simulation developed in **C#*
 
 ---
 
+## **Prerequisites**
+  - **.NET 8.0**: Ensure that .NET 8.0 SDK is installed on your machine.  
+  [Download here](https://dotnet.microsoft.com/download/dotnet/8.0).  
+  - **IDE of Your Choice**: I used **VS Code**, but Visual Studio or any IDE that supports .NET development can be used.  
+    - For VS Code, ensure the following extensions are installed:  
+    - [C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).  
+    - [Test Explorer](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.test-explorer).
+
 ## How to Run the Application
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/EntrustVendingMachine.git
    cd EntrustVendingMachine
+   ```
 
 2. **Open the solution**:  
    - Launch the project in Visual Studio or your preferred IDE.
 
 3. **Build and run**:  
-   - Set the startup project to the vending machine simulator.  
-   - Press `F5` or click "Run" to start the application.
+   - **If using Visual Studio**:  
+     - Set the startup project to `VendingMachineSimulator`.  
+     - Right-click on the solution named `EntrustVendingMachine`, select **Set as Startup Project**, and press `F5` or click **Run**.  
+  
+   - **If using VS Code (as I did)**:  
+     - Open the `Program.cs` file.  
+     - Click the **Run** button in the top-right corner of the editor.
+    - ![alt text](<Captura de ecrã 2024-12-20, às 16.16.08.png>)
 
-4. **Run tests**:  
-   - Open the Test Explorer in your IDE.  
-   - Run all tests to verify that all functionalities are working as intended.
+4. **Run tests**:
+   - **If using Visual Studio**:  
+     - Set the startup project to `EntrustVendingMachine.Testers`.  
+     - Right-click on the solution named `EntrustVendingMachine.Testers`, select **Set as Startup Project**, and run the tests using the **Test Explorer**.  
+
+   - **If using VS Code**:  
+     - Open the **Testing** tab.  
+     - Run the tests directly from there.
+   - ![alt text](<Captura de ecrã 2024-12-20, às 16.17.45.png>)
 
 ---
 
