@@ -49,6 +49,13 @@ This project is a fully functional vending machine simulation developed in **C#*
     - For VS Code, ensure the following extensions are installed:
     - [C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 
+## **Check .NET Installation**
+Run the following command in your terminal to confirm .NET is installed:
+
+```bash
+dotnet --version
+```
+
 ## How to Run the Application
 
 1. Clone the repository:
@@ -72,13 +79,20 @@ This project is a fully functional vending machine simulation developed in **C#*
 
 4. **Run tests**:
    - **If using Visual Studio**:  
-     - Set the startup project to `EntrustVendingMachine.Testers`.  
-     - Right-click on the solution named `EntrustVendingMachine.Testers`, select **Set as Startup Project**, and run the tests using the **Test Explorer**.  
+     - If the **Test Explorer** is not visible, open it by navigating to **Test > Windows > Test Explorer** or pressing `Ctrl+E, T`.  
+     - Choose one of the following options to run the tests:  
+       - **Run All Tests**: Click the **Run All** icon or press `Ctrl+R, A`.  
+       - **Run Tests by Group**: Click the **Run** icon and select the desired test group from the menu.  
+       - **Run Selected Tests**: Select one or more tests, right-click, and choose **Run Selected Tests**, or press `Ctrl+R, T`.  
 
    - **If using VS Code**:  
      - Open the **Testing** tab.  
      - Run the tests directly from there.
      ![alt text](TestingImage.png)
+
+## Expected Output
+  - **Application**: Once the project is running, you should see a console interface where you can interact with the vending machine.
+  - **Tests**: All tests should pass, confirming that the application works as expected.
 
 ---
 
