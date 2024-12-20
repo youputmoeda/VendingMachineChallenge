@@ -46,9 +46,8 @@ This project is a fully functional vending machine simulation developed in **C#*
   - **.NET 8.0**: Ensure that .NET 8.0 SDK is installed on your machine.  
   [Download here](https://dotnet.microsoft.com/download/dotnet/8.0).  
   - **IDE of Your Choice**: I used **VS Code**, but Visual Studio or any IDE that supports .NET development can be used.  
-    - For VS Code, ensure the following extensions are installed:  
-    - [C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).  
-    - [Test Explorer](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.test-explorer).
+    - For VS Code, ensure the following extensions are installed:
+    - [C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 
 ## How to Run the Application
 
